@@ -1,0 +1,44 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Gender {
+  Male
+  Female
+  Other
+}
+
+// Define the Section enum
+enum Section {
+  A
+  B
+  C
+  D
+}
+
+// Define the Student model
+model Student {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  firstName   String
+  lastName    String
+  age         Int      @map("age")
+  gender      Gender // Enum field for gender
+  email       String   @unique
+  phoneNumber String
+  courses     String[] // Array of courses
+  isActive    Boolean  @default(true)
+  section     Section // Enum field for section
+}
+
+model User {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  firstName String
+  lastName  String
+  email     String @unique
+  password  String
+}
