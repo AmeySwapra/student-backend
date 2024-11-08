@@ -13,7 +13,7 @@ enum Gender {
   Other
 }
 
-// Define the Section enum
+
 enum Section {
   A
   B
@@ -21,19 +21,22 @@ enum Section {
   D
 }
 
-// Define the Student model
+
 model Student {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  firstName   String
-  lastName    String
-  age         Int      @map("age")
-  gender      Gender // Enum field for gender
-  email       String   @unique
-  phoneNumber String
-  courses     String[] // Array of courses
-  isActive    Boolean  @default(true)
-  section     Section // Enum field for section
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  firstName    String
+  lastName     String
+  age          Int      @map("age")
+  gender       Gender 
+  email        String   @unique
+  phoneNumber  String
+  courses      String[] 
+  isActive     Boolean  @default(true)
+  section      Section 
+  image        String?  
+  pdf          String?  
 }
+
 
 model User {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
