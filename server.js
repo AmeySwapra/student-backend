@@ -22,7 +22,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 const corsOptions = {
-  origin: ['https://swapra-student-dashboard.netlify.app', 'http://localhost:5174'],
+  origin: ['https://swapra-student-dashboard.netlify.app', 'http://localhost:5173'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],  
   allowedHeaders: ['Content-Type', 'Authorization'],  
 };
